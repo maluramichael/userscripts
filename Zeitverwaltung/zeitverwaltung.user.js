@@ -139,3 +139,23 @@ console.log('overall work', 'hours', overallWork.hours, 'minutes', overallWork.m
 
 document.title = todayWork.hours + ':' + todayWork.minutes + ' (' + overWork.hours + ':' + overWork.minutes + ')';
 setTimeout(function(){location.reload()}, 1000 * 60);
+
+
+var widget = $('#socialbitPanelFloatingContent form')
+.children()
+.clone();
+
+var header = widget.find('.icon7');
+header.text('Zusammenfassung');
+
+var content = widget.find('.widgetContent');
+content.empty();
+content.append($('<h2>Überstunden</h2>'));
+content.append($('<p>' + overWork.hours + ':' + overWork.minutes + '</p>'));
+content.append($('<h2>Unterstunden</h2>'));
+content.append($('<p>' + lessWork.hours + ':' + lessWork.minutes + '</p>'));
+content.append($('<h2>Gesamt</h2>'));
+content.append($('<p>' + overallWork.hours + ':' + overallWork.minutes + '</p>'));
+
+$('#socialbitPanelFloatingContent form')
+    .append(widget);
