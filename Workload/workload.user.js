@@ -8,11 +8,11 @@
 // @grant        none
 // ==/UserScript==
 
-function parseMinutes(minutes){
+function parseMinutes(minutes){ // 7450
     var m = minutes;
     var days = 0;
     var hours = 0;
-    if (m>=1440){
+    if (m>=1440){ // >= 1day
         days = Math.floor(m/1440);
         m-= days*1440;
     }
@@ -29,17 +29,29 @@ function parseMinutes(minutes){
 
 (function() {
     'use strict';
-
-    var times = $('.timeoriginalestimate').map(function(i, e){ var t = $(e).text().split(' '); return {time: parseInt(t[0]), type: t[1]}; });
+    var times = [];
+    $('.timeoriginalestimate').each(function(i, e){
+        var text = $(e).text();
+        var textSplitted = text.split(',');
+        textSplitted.forEach(function(element){
+            var elements = element.trim().split(' ');
+            if (elements.length === 0) return;
+            if (elements[0] === "") elements.shift();
+            times.push({time: parseInt(elements[0]), type: elements[1]});
+        });
+    });
     var minutes = 0;
-    times.each(function time(i, t){
+    times.forEach(function time(t, index){
         switch(t.type){
+            case 'minute':
             case 'minutes':
                 minutes+=t.time;
                 break;
+            case 'hour':
             case 'hours':
                 minutes+=t.time*60;
                 break;
+            case 'day':
             case 'days':
                 minutes+=t.time*60*24;
                 break;
