@@ -59,6 +59,7 @@ function parseMinutes(minutes){ // 7450
     });
     var parsed = parseMinutes(minutes);
     console.log(parsed);
-    var overlay = $('<div  style="position: fixed; top: 41px; left: 0; background-color: rgba(0,0,0,0.5); color: white; padding: 4px">').html(parsed.days + ' days ' + parsed.hours + ' hours ' + parsed.minutes + ' minutes');
-    $('body').prepend(overlay);
+   var overlay = $('<div style="background-color: #3b7fc4; color: white; border-radius: 0; box-shadow: none; float: left; padding: 11px 20px 0 20px; height: 30px; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;">').html(parsed.days + ' days ' + parsed.hours + ' hours ' + parsed.minutes + ' minutes');
+    overlay.appendTo('#quicksearch');
+
 })();
