@@ -7,14 +7,14 @@
 // @match        https://socialbitde.atlassian.net/issues/*
 // @grant        none
 // ==/UserScript==
-
+var oneDayMinutes = 480;
 function parseMinutes(minutes){ // 7450
     var m = minutes;
     var days = 0;
     var hours = 0;
-    if (m>=1440){ // >= 1day
-        days = Math.floor(m/1440);
-        m-= days*1440;
+    if (m>=oneDayMinutes){ // >= 1day
+        days = Math.floor(m/oneDayMinutes);
+        m-= days*oneDayMinutes;
     }
     if (m>=60){
         hours = Math.floor(m/60);
@@ -53,7 +53,7 @@ function parseMinutes(minutes){ // 7450
                 break;
             case 'day':
             case 'days':
-                minutes+=t.time*60*24;
+                minutes+=t.time*60*8;
                 break;
         }
     });
