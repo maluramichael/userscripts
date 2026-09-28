@@ -1,5 +1,10 @@
 # userscripts
 
+<!-- links:start -->
+[![Support me on Ko-fi](https://malura.de/assets/badge/kofi.svg)](https://malura.de/go/kofi?ref=userscripts)
+[![Check out my page](https://malura.de/assets/badge/malura.svg)](https://malura.de/go/site?ref=userscripts)
+<!-- links:end -->
+
 Drei Userscripts für Tampermonkey, die ich mir 2016 bei meinem damaligen Arbeitgeber gebastelt habe. Alle drei hängen an Seiten, mit denen ich täglich zu tun hatte.
 
 ## Workload
